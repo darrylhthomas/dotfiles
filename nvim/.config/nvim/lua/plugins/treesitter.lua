@@ -9,7 +9,7 @@ return {
             },
             indent = { enable = true },
             autotag = { enable = true },
-            ensure_installed = { "lua", "php", "javascript", "html", "css" },
+            ensure_installed = { "lua", "php", "python", "vim", "javascript", "html", "css" },
             auto_install = false,
         })
     end
