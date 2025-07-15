@@ -1,5 +1,8 @@
 return {
     {
+        'folke/which-key.nvim',
+    },
+    {
         'ojroques/vim-oscyank',
     },
     {
