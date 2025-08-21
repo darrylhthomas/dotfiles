@@ -22,6 +22,7 @@ if ! [[ -d "${TEMPORARY_DIRECTORY}" && -w "${TEMPORARY_DIRECTORY}" ]]; then
 	fail "Unable to create temporary directory. Aborting."
 fi
 cd "${TEMPORARY_DIRECTORY}" || fail "Unable to change to temporary directory."
+pwd
 
 echo "Checking for Oh-my-zsh…"
 echo "ZSH environment variable is \"$ZSH\""
@@ -34,8 +35,7 @@ else
 fi
 
 echo "Checking for Homebrew installation…"
-echo "HOMEBREW_REPOSITORY environment variable is \"$HOMEBREW_REPOSITORY\""
-if [ -z "${HOMEBREW_REPOSITORY}" ]; then
+if ! which "brew"; then
 	require_confirmation "Homebrew not found. Shall we install it now?"
 	
 	bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || fail "An error occurred while installing Homebrew."
@@ -61,6 +61,7 @@ check_and_install_from_brew pyright
 check_and_install_from_brew nvim
 check_and_install_from_brew fzf
 check_and_install_from_brew bat
+check_and_install_from_brew zoxide
 check_and_install_from_brew stow
 
 
@@ -85,8 +86,8 @@ check_and_install_from_github() {
 
 printf "\nChecking for dependencies available from Github…\n\n"
 
-check_and_install_from_github "ZSH Autosuggestions" "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" "https://github.com/zsh-users/zsh-autosuggestions"
-check_and_install_from_github "ZSH Syntax Highlighting" "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" "https://github.com/zsh-users/zsh-syntax-highlighting"
+check_and_install_from_github "ZSH Autosuggestions" "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" "https://github.com/zsh-users/zsh-autosuggestions"
+check_and_install_from_github "ZSH Syntax Highlighting" "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" "https://github.com/zsh-users/zsh-syntax-highlighting"
 check_and_install_from_github tpm "$HOME/.tmux/plugins/tpm" "https://github.com/tmux-plugins/tpm"
 check_and_install_from_github "ZSH Theme: nord-extended" "$ZSH/themes/nord-extended" "https://github.com/fxbrit/nord-extended"
 
@@ -135,5 +136,5 @@ defaults write com.apple.Terminal 'Default Window Settings' -string Nord || fail
 defaults write com.apple.Terminal 'Startup Window Settings' -string Nord || fail "Could not write startup window settings key to Terminal defaults."
 
 printf "\n\nDone! You will need to restart Xcode and Terminal.app (and open a new window) for changes to take effect.\n"
-printf "Remember to install tmux plugins using 'cmd-<space> I' after entering tmux.\n\n"
+printf "Remember to install tmux plugins using 'ctrl-<space> I' after entering tmux.\n\n"
 exit 0
