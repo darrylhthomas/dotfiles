@@ -69,6 +69,16 @@ return {
             capabilities = capabilities,
         })
 
+        require("lspconfig").sourcekit.setup {
+            capabilities = {
+                workspace = {
+                    didChangeWatchedFiles = {
+                        dynamicRegistration = true,
+                    },
+                },
+            },
+        }
+
         require("lspconfig").pyright.setup {
             capablities = capabilities,
         }
