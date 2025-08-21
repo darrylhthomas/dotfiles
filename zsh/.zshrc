@@ -11,3 +11,7 @@ source $ZSH/oh-my-zsh.sh
 alias vi="nvim"
 alias vim="nvim"
 
+if [ -f "$HOME/.zshprofile" ]; then;
+    source "$HOME/.zshprofile"
+fi
+
