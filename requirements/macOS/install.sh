@@ -59,6 +59,8 @@ check_and_install_from_brew tmux
 check_and_install_from_brew lazygit
 check_and_install_from_brew pyright
 check_and_install_from_brew nvim
+check_and_install_from_brew fzf
+check_and_install_from_brew bat
 check_and_install_from_brew stow
 
 
@@ -83,6 +85,8 @@ check_and_install_from_github() {
 
 printf "\nChecking for dependencies available from Github…\n\n"
 
+check_and_install_from_github "ZSH Autosuggestions" "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" "https://github.com/zsh-users/zsh-autosuggestions"
+check_and_install_from_github "ZSH Syntax Highlighting" "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" "https://github.com/zsh-users/zsh-syntax-highlighting"
 check_and_install_from_github tpm "$HOME/.tmux/plugins/tpm" "https://github.com/tmux-plugins/tpm"
 check_and_install_from_github "ZSH Theme: nord-extended" "$ZSH/themes/nord-extended" "https://github.com/fxbrit/nord-extended"
 
@@ -101,7 +105,7 @@ do
 	fi
 done
 printf "\nStowing dotfiles…\n\n"
-stow -v -d ~/dotfiles -S nvim -S tmux -S zsh -S xcode-themes || fail "Could not stow dotfiles."
+stow -v -d ~/dotfiles -S ghostty -S nvim -S tmux -S zsh -S xcode-themes || fail "Could not stow dotfiles."
 
 
 printf "\nSetting Xcode theme…\n"
