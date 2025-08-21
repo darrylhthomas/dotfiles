@@ -4,7 +4,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="nord-extended/nord"
 DISABLE_UPDATE_PROMPT="true"
-plugins=(git symfony6 zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(zoxide git symfony6 zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
