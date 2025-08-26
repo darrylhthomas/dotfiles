@@ -1,22 +1,25 @@
 return {
     {
-        'folke/which-key.nvim',
+        "folke/which-key.nvim",
     },
     {
-        'ojroques/vim-oscyank',
+        "ojroques/vim-oscyank",
     },
     {
-        'tpope/vim-fugitive',
+        "tpope/vim-fugitive",
     },
     {
-        'stevearc/dressing.nvim',
-        event = 'VeryLazy',
+        "stevearc/dressing.nvim",
+        event = "VeryLazy",
     },
     {
-        'brenoprata10/nvim-highlight-colors',
+        "windwp/nvim-ts-autotag",
+        opts = {},
+    },
+    {
+        "brenoprata10/nvim-highlight-colors",
         config = function()
-            require('nvim-highlight-colors').setup({})
-        end
+            require("nvim-highlight-colors").setup({})
+        end,
     },
 }
-

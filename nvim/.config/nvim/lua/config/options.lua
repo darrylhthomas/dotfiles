@@ -3,6 +3,7 @@ vim.opt.cursorline = true
 vim.opt.relativenumber = true
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-vim.opt.rtp:append('/opt/homebrew/opt/fzf')
+vim.opt.signcolumn = "yes"
+vim.opt.rtp:append("/opt/homebrew/opt/fzf")
 
 vim.opt.swapfile = false

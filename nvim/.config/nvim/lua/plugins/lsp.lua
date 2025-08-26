@@ -48,13 +48,13 @@ return {
 
                 opts.desc = "Restart LSP"
                 keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
-
             end,
         })
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
         vim.diagnostic.config({
+            virtual_text = true,
             signs = {
                 text = {
                     [vim.diagnostic.severity.ERROR] = " ",
@@ -69,7 +69,7 @@ return {
             capabilities = capabilities,
         })
 
-        require("lspconfig").sourcekit.setup {
+        require("lspconfig").sourcekit.setup({
             capabilities = {
                 workspace = {
                     didChangeWatchedFiles = {
@@ -77,11 +77,11 @@ return {
                     },
                 },
             },
-        }
+        })
 
-        require("lspconfig").pyright.setup {
+        require("lspconfig").pyright.setup({
             capablities = capabilities,
-        }
+        })
 
         vim.lsp.config("lua_ls", {
             settings = {
@@ -97,4 +97,3 @@ return {
         })
     end,
 }
-

@@ -63,6 +63,7 @@ check_and_install_from_brew fzf
 check_and_install_from_brew bat
 check_and_install_from_brew zoxide
 check_and_install_from_brew stow
+check_and_install_from_brew fd
 
 
 printf "\nChecking for JetBrainsMono nerd-fonts…\n"
