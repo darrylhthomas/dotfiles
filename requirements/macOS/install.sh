@@ -64,6 +64,9 @@ check_and_install_from_brew bat
 check_and_install_from_brew zoxide
 check_and_install_from_brew stow
 check_and_install_from_brew fd
+check_and_install_from_brew wget
+check_and_install_from_brew xcbeautify
+check_and_install_from_brew coreutils
 
 
 printf "\nChecking for JetBrainsMono nerd-fonts…\n"
