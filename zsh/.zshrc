@@ -11,6 +11,7 @@ source $ZSH/oh-my-zsh.sh
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
+export EDITOR="nvim"
 alias vi="nvim"
 alias vim="nvim"
 alias fnv='nvim $(fzf -m --preview="bat --color=always {}")'

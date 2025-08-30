@@ -28,6 +28,7 @@ return {
                 "stimulus_ls",
                 "bashls",
                 "pyright",
+                "ruff",
             },
             automatic_installation = true,
         })
@@ -36,11 +37,7 @@ return {
             ensure_installed = {
                 "prettier",
                 "stylua",
-                "isort",
-                "black",
                 "eslint_d",
-                ---                "mypy",
-                ---                "pylint",
             },
         })
     end,

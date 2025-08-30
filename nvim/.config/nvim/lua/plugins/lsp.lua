@@ -95,8 +95,17 @@ return {
             capabilities = sourcekit_capabilities,
         })
 
+        require("lspconfig").ruff.setup({
+            settings = { args = { "--ignore", "F401" } },
+        })
+
         require("lspconfig").pyright.setup({
             capablities = capabilities,
+            settings = {
+                python = {
+                    analysis = { ignore = { "*" } },
+                },
+            },
         })
 
         vim.lsp.config("lua_ls", {
