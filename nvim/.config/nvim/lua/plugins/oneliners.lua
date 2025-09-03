@@ -9,10 +9,6 @@ return {
         "tpope/vim-fugitive",
     },
     {
-        "stevearc/dressing.nvim",
-        event = "VeryLazy",
-    },
-    {
         "windwp/nvim-ts-autotag",
         config = function()
             --    require("nvim-ts-autotag").config()
