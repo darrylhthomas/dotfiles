@@ -20,3 +20,7 @@ if [ -f "$HOME/.zshprofile" ]; then;
     source "$HOME/.zshprofile"
 fi
 
+if [ -f "$HOME/.zprofile" ]; then;
+    source "$HOME/.zprofile"
+fi
+
