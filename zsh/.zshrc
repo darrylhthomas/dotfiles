@@ -24,3 +24,4 @@ if [ -f "$HOME/.zprofile" ]; then;
     source "$HOME/.zprofile"
 fi
 
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"

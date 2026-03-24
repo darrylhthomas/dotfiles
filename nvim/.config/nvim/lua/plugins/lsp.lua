@@ -14,8 +14,6 @@ return {
         },
     },
     config = function()
-        local lspconfig = require("lspconfig")
-        local util = require("lspconfig.util")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
         local keymap = vim.keymap
         vim.api.nvim_create_autocmd("LspAttach", {
@@ -85,7 +83,7 @@ return {
                 dynamicRegistration = true,
             },
         }
-        require("lspconfig").sourcekit.setup({
+        vim.lsp.config("sourcekit", {
             settings = {
                 command = { "xcrun", "sourcekit-lsp" },
                 cmd = { "xcrun", "sourcekit-lsp" },
@@ -95,11 +93,11 @@ return {
             capabilities = sourcekit_capabilities,
         })
 
-        require("lspconfig").ruff.setup({
+        vim.lsp.config("ruff", {
             settings = { args = { "--ignore", "F401" } },
         })
 
-        require("lspconfig").pyright.setup({
+        vim.lsp.config("pyright", {
             capablities = capabilities,
             settings = {
                 python = {
@@ -111,11 +109,24 @@ return {
         vim.lsp.config("lua_ls", {
             settings = {
                 Lua = {
+                    runtime = {
+                        version = "LuaJIT",
+                    },
                     diagnostics = {
                         globals = { "vim" },
                     },
-                    completion = {
-                        callSnippet = "Replace",
+                    workspace = {
+                        checkThirdParty = false,
+                    },
+                    format = {
+                        enable = true,
+                        defaultConfig = {
+                            indent_style = "space",
+                            indent_size = "2",
+                        },
+                    },
+                    telemetry = {
+                        enable = false,
                     },
                 },
             },
